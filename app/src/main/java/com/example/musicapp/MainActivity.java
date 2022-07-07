@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -51,22 +55,21 @@ public class MainActivity extends AppCompatActivity {
             }).check();
     }
 
-    public ArrayList<File> findSong(File file)
-    {
-        ArrayList<File> arrayList= new ArrayList<>();
-        File[] files=file.listFiles();
-        for(File singlefile: files)
-        {
-            if(singlefile.isDirectory() && !singlefile.isHidden())
-            {
-                arrayList.addAll(findSong(singlefile));
-            }
-            else
-            {
-                if(singlefile.getName().endsWith(".mp3") || singlefile.getName().endsWith(".wav"))
-                {
-                    arrayList.add(singlefile);
+    public ArrayList<File> findSong(File file) {
+        ArrayList arrayList = new ArrayList();
+        File [] files = file.listFiles();
+        if(files != null) {
+            for (File singlefile : files) {
+                if (singlefile.isDirectory() && !singlefile.isHidden()) {
+                    arrayList.addAll(findSong(singlefile));
+                } else {
+                    if (singlefile.getName().endsWith(".wav")) {
+                        arrayList.add(singlefile);
+                    } else if (singlefile.getName().endsWith(".mp3")) {
+                        arrayList.add(singlefile);
+                    }
                 }
+
             }
         }
         return arrayList;
@@ -80,8 +83,40 @@ public class MainActivity extends AppCompatActivity {
         {
             items[i]=mySongs.get(i).getName().toString().replace(".mp3","").replace(".wav","");
         }
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(myAdapter);
+//        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+//        listView.setAdapter(myAdapter);
+
+        customAdapter customAdapter = new customAdapter();
+        listView.setAdapter(customAdapter);
+    }
+
+    class customAdapter extends BaseAdapter
+    {
+
+        @Override
+        public int getCount() {
+            return items.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View myView = getLayoutInflater().inflate(R.layout.list_item, null);
+            TextView textsong = myView.findViewById(R.id.txtsongname);
+            textsong.setSelected(true);
+            textsong.setText(items[i]);
+
+            return myView;
+        }
     }
 
 }

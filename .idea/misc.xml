@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/fastforward.xml" value="0.136" />
         <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/ic_baseline_library_music_24.xml" value="0.111" />
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.136" />
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.136" />
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.136" />
         <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/list_bg.xml" value="0.1" />
+        <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/drawable/play.xml" value="0.136" />
         <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/layout/activity_main.xml" value="0.2246376811594203" />
         <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/layout/activity_player.xml" value="0.25" />
         <entry key="..\:/Users/Public/Documents/AndroidApps/MusicApp/app/src/main/res/layout/list_item.xml" value="0.23229166666666667" />
